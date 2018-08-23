@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head lang="es">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0" />
+
+        <title>{{_title}}</title>
+
+        {{ HEasy_Html.tag_link(_layout_ruta_css~"reset.css") }}
+        {{ HEasy_Html.tag_link(_layout_ruta_css~"bootstrap.css") }}
+        {{ HEasy_Html.tag_link(_layout_ruta_css~"style.css") }}
+
+        {% if _css != null and _css|length > 0 %}
+            {% for i in _css %}
+                {{ HEasy_Html.tag_link(i)}}
+            {% endfor %}
+        {% endif %}
+
+        <script>
+            var BASE_URL = "{{BASE_URL}}";
+            var _path_img = "{{_view_ruta_img}}";
+        </script>
+
+        <link href="{{ _layout_ruta_img }}favicon.ico" type="image/x-icon" rel="shortcut icon" />
+
+    </head>
+    <body>
+
+        {% block menu %}
+            <div class="container">
+                {% include "menu.twig" %}
+            </div>
+        {% endblock %}
+
+        {% block banner %}
+            <div class="container hidden-xs">
+                <div id="banner">
+                    <h2>{{ APP_NAME }}</h2>
+                    <p>{{ APP_SLOGAN }}. <a class=" pull-right btn btn-primary" href="{{ BASE_URL }}crear" target="_blank">Comienza Ahora</a></p>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        {% endblock %}
+
+
+        <div class="container">
+                {% block content%}{% endblock %}
+        </div>
+
+        <div class="clearfix"></div>
+
+        <br>
+        <br>
+        <br>
+
+        <footer class="main navbar-fixed-bottom" style="margin-top: 10px;">
+            <p>Efrey-php es desarrollado por {{ APP_COMPANY }}. Copyright &copy; Reynier Reytor. {{ HEasy_Date.getYear() }}</p>
+            <p ><a href="http://efrey-php.com">Diseñado por Reynier Reytor</a></p>
+        </footer>
+
+        <!-- Se incluyen los js al final de la página para cargar más rapido la información..-->
+        {{ HEasy_Html.script_link(_layout_ruta_js~"jquery-1.11.1.min.js") }}
+        {{ HEasy_Html.script_link(_layout_ruta_js~"bootstrap.js") }}
+        {{ HEasy_Html.script_link(_layout_ruta_js~"php.js") }}
+        {{ HEasy_Html.script_link(_layout_ruta_js~"default.js") }}
+
+        {% if _js != null and _js|length > 0 %}
+            {% for i in _js %}
+                {{ HEasy_Html.script_link(i)}}
+            {% endfor %}
+        {% endif %}
+    </body>
+</html>

@@ -1,0 +1,102 @@
+{% extends "default.twig" %}
+
+{% block content %}
+
+    <div class="templatemo-content-widget alert-danger" id="msgError">
+        <i class='fa fa-times' style="color: #080808;"></i>
+        <div id="msgErrorInf"></div>
+    </div>
+    <div class="templatemo-content-widget alert-success" id="msgInfo">
+        <i class='fa fa-times' style="color: #080808;"></i>
+        <div id="msgInfoInf"></div>
+    </div>
+
+    <div class="templatemo-content-widget white-bg">
+        <div class="square"></div>
+        <h2 class="templatemo-inline-block">{{ title }}</h2><hr>
+        <label>Datos generales de la aplicación</label>
+        <form enctype="multipart/form-data" method="post" class="templatemo-login-form" action="index.html">
+            <div class="row form-group">
+                <div class="col-lg-6 col-md-6 col-xs-12 form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="nameApp"><strong><i class="fa fa-quote-left"></i> <i class="fa fa-ellipsis-h"></i> <i class="fa fa-quote-right"></i> </strong></span>
+                        <input type="text" class="form-control" id="name" placeholder="Nombre de la aplicación" aria-describedby="nameApp" required="true">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-xs-12 form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="companyApp"><strong><i class="fa fa-home"></i> </strong></span>
+                        <input type="text" placeholder="Nombre de la empresa o compañía" id="company" class="form-control" aria-describedby="companyApp" required="true">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-xs-12 form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="mailtoApp"><strong><i class="fa fa-envelope-o"></i>  </strong></span>
+                        <input type="email" placeholder="contacto@company.com" id="mailto"  name="mailto"  class="form-control" aria-describedby="mailtoApp" required="true">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-xs-12 form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="compilerApp"><strong><i class="fa fa-cogs"></i> </strong></span>
+                        <select id="compiler" class="form-control" aria-describedby="compilerApp">
+                            <option value="Smarty">Smarty</option>
+                            <option value="Twig">Twig</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-xs-12 form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sloganApp"><strong><i class="fa fa-comment-o"></i> </strong></span>
+                        <input type="text" placeholder="Slogan" id="slogan" class="form-control" aria-describedby="sloganApp" required="true">
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <label>Configuración de la Base de datos</label>
+            <div class="row form-group">
+                <div class="col-lg-3 col-md-3 col-xs-12 form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="serverDB"><strong><i class="fa fa-desktop"></i>  </strong></span>
+                        <input type="text" placeholder="IP o Nombre del servidor" id="server" class="form-control" aria-describedby="serverDB" required="true">
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-xs-12 form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="userDB"><strong><i class="fa fa-user"></i> </strong></span>
+                        <input type="text" placeholder="Usuario" id="user"  name="user"  class="form-control" aria-describedby="userDB" required="true">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-xs-12 form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="passDB"><strong><i class="fa fa-key"></i>  </strong></span>
+                        <input type="text" placeholder="Contraseña" id="pass"  name="pass"  class="form-control" aria-describedby="passDB" required="false">
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-xs-12 form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="dbnameDB"><strong><i class="fa fa-database"></i> </strong></span>
+                        <input type="text" placeholder="Nombre de la BD" id="dbname"  name="dbname"  class="form-control" aria-describedby="dbnameDB" required="true">
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-xs-12 form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="driverDB"><strong><i class="fa fa-chain"></i> </strong></span>
+                        <select id="driver" class="form-control" aria-describedby="driverDB">
+                            <option value="mysql">MySQL</option>
+                            <option value="mssql">MsSQL</option>
+                            <option value="odbc_mssql">ODBC_MsSQL</option>
+                            <option value="postgres">PostgreSQL</option>
+                            <option value="sqlite">SQLite</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-7 col-xs-12 form-group text-right">
+                    <button class="templatemo-blue-button" type="button" id="btnCrear"><i class="fa fa-check-circle"></i> Crear</button>
+                    <button class="templatemo-white-button" type="reset"><i class="fa fa-eraser"></i> Limpiar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+{% endblock %}

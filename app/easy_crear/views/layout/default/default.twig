@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ _title }}</title>
+    <meta name="description" content="Efrey-PHP framework de desarrollo web, fácil, ligero y potente">
+    
+    <link href="{{ _layout_ruta_img }}favicon.ico" type="image/x-icon" rel="shortcut icon" />
+
+    {{ HEasy_Html.tag_link(_layout_ruta_css~"font-open-sans.css") }}
+    {{ HEasy_Html.tag_link(_layout_ruta_css~"font-awesome.min.css") }}
+    {{ HEasy_Html.tag_link(_layout_ruta_css~"bootstrap.min.css") }}
+    {{ HEasy_Html.tag_link(_layout_ruta_css~"templatemo-style.css") }}
+
+    {% if _css != null and _css|length > 0 %}
+        {% for i in _css %}
+            {{ HEasy_Html.tag_link(i)}}
+        {% endfor %}
+    {% endif %}
+
+
+</head>
+<body>
+<!-- Left column -->
+
+<div class="templatemo-flex-row white-bg">
+    {% include "topnav.twig" %}
+</div>
+<div class="templatemo-flex-row bg-gradient">
+    <div class="templatemo-sidebar">
+        <br>
+        <div class="profile-photo-container">
+            <img src="{{ _layout_ruta_img }}logo-name.png" width="90%" alt="EFREY-PHP" class="img-responsive" style="padding-left: 20px;">
+            <div class=""></div>
+        </div>
+
+        <div class="mobile-menu-icon">
+            <i class="fa fa-bars"></i>
+        </div>
+        {% include "sidernav.twig" %}
+    </div>
+    <!-- Main content light-gray-bg -->
+    <div class="templatemo-content col-1 ">
+        <div class="templatemo-content-container">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <footer class="text-right">
+            <p>Copyright &copy; {{ HEasy_Date.getYear() }} {{ APP_COMPANY }}
+                | Creado con <a href="http://efrey-php.com" target="_parent">Efrey-php</a></p>
+        </footer>
+    </div>
+</div>
+
+<!-- JS -->
+{{ HEasy_Html.script_link(_layout_ruta_js~"jquery-1.11.2.min.js") }}
+{{ HEasy_Html.script_link(_layout_ruta_js~"jquery-migrate-1.2.1.min.js") }}
+{{ HEasy_Html.script_link(_layout_ruta_js~"templatemo-script.js") }}
+
+<!--[if lt IE 9]>
+{{ HEasy_Html.script_link(_layout_ruta_js~"html5shiv.min.js") }}
+{{ HEasy_Html.script_link(_layout_ruta_js~"respond.min.js") }}
+<![endif]-->
+
+<script>
+    var BASE_URL = "{{BASE_URL}}";
+    var _path_img = "{{_view_ruta_img}}";
+</script>
+
+{% if _js != null and _js|length > 0 %}
+    {% for i in _js %}
+        {{ HEasy_Html.script_link(i)}}
+    {% endfor %}
+{% endif %}
+
+
+</body>
+</html>

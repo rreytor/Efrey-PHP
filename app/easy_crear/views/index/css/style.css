@@ -1,0 +1,12 @@
+
+#banner {
+    background-attachment: scroll, fixed;
+    background-image: url("../img/px-bg.svg"), url("../img/px-banner.jpg");
+    background-position: center center, center center;
+    background-size: auto auto, cover;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: 400;
+    margin-top: 1em;
+    padding: 1em;
+}

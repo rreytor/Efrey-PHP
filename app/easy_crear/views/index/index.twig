@@ -1,0 +1,65 @@
+{% extends "default.twig" %}
+
+{% block content %}
+    <div class="templatemo-flex-row flex-content-row">
+        <div class="templatemo-content-widget white-bg">
+            <!--<i class="fa fa-times"></i>-->
+            <div class="square"></div>
+            <h2 class="templatemo-inline-block">¿Como funciona Efrey-PHP?</h2><hr>
+            <p>Efrey-PHP es un framework diseñado para funcionar con el patrón MVC. Para hacer un uso correcto de este framework se deben cumplir con las siguientes reglas:</p>
+            <ul>
+                <li>* Tener activado el módulo <strong>rewrite_module</strong> <span style="color: {% if mod_rewrite == "ACTIVADO" %} green {% else %} red {% endif %}">({{ mod_rewrite }}).</span></li>
+                <li>* Los controladores se nombran: <strong>nombreController</strong>, siempre heredan de <strong>Easy_Controller</strong> y debe existir la función <strong>index().</strong></li>
+                <li>* Los modelos se nombran: <strong>nombreModel</strong>, siempre heredan de Easy_Model.</li>
+                <li>* Cada controlado puede contar con N vistas las cuales estarán almacenadas dentro del directorio <strong>views/nombre</strong>, siendo "nombre" el nombre del controlador que la va utilizar, sin la palabra Controller.</li>
+                <li>* Se recomienda por la posibilidad que brinda Efrey-PHP de hospedar multiples aplicaciones, que esté en la raíz del servidor web.</li>
+                <li>* Efrey-PHP accede a las aplicaciones que hospeda por el nombre de las mismas, estas se almacenan dentro del directorio <strong>app</strong>. Efrey-php utiliza el nombre del servidor que se solicite por URL para brindar la aplicación solicitada.</li>
+                <li>* Se recomienda para el trabajo en una red hacer uso del DNS para referenciar el nombre de las aplicaciones, de trabajar local se puede utilizar el fichero host para referenciar el nombre de la aplicación o se puede hacer uso de un virtual host de apache.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="templatemo-flex-row flex-content-row">
+        <div class="templatemo-content-widget white-bg col-1 text-center">
+            <a href="{{ BASE_URL }}crear">
+                <h2 class="text-uppercase">Crear</h2>
+                <h3 class="text-uppercase margin-bottom-10">Aplicación</h3><hr>
+                <img src="{{ _layout_ruta_img }}logo_ok.png" alt="Efre-php" width="50%" class="img-circle img-thumbnail">
+            </a>
+        </div>
+        <div class="templatemo-content-widget white-bg col-1 text-center">
+            <a href="{{ BASE_URL }}modelos">
+                <h2 class="text-uppercase">Crear </h2>
+                <h3 class="text-uppercase">Modelos</h3><hr>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
+                </div>
+            </a>
+        </div>
+        <div class="col-1">
+            <div class="panel panel-default templatemo-content-widget white-bg no-padding templatemo-overflow-hidden">
+                <div class="panel-heading templatemo-position-relative"><h2 class="text-uppercase">Aplicaciones Disponibles</h2></div>
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered">
+                        <tbody>
+                        {% for i in listApp %}
+                            <tr>
+                                <td><a href="http://{{ i.dir }}" target="_blank">{{ i.dir }}</a></td>
+                                <td>{{ i.date }}</td>
+                            </tr>
+                        {% endfor%}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div> <!-- Second row ends -->
+
+{% endblock %}
+
+
